@@ -2,8 +2,6 @@
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
@@ -20,4 +18,27 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+// update superscript number of items on backpack cart icon
+export function updateCartCount() {
+  const cartLink = document.querySelector(".cart a");
+  if (!cartLink) return;
+
+  const cartItems = getLocalStorage("so-cart") || [];
+  let badge = cartLink.querySelector(".cart-count");
+
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.className = "cart-count";
+    cartLink.appendChild(badge);
+  }
+
+  if (cartItems.length > 0) {
+    badge.textContent = cartItems.length;
+    badge.classList.remove("hide");
+  } else {
+    badge.textContent = "";
+    badge.classList.add("hide");
+  }
 }
