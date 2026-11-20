@@ -1,0 +1,27 @@
+[
+  {
+    "id": "flights",
+    "label": "Flights & Airfare",
+    "suggestedDaily": 0
+  },
+  {
+    "id": "lodging",
+    "label": "Hotel & Lodging",
+    "suggestedDaily": 95
+  },
+  {
+    "id": "food",
+    "label": "Food & Dining",
+    "suggestedDaily": 45
+  },
+  {
+    "id": "transport",
+    "label": "Local Transport",
+    "suggestedDaily": 20
+  },
+  {
+    "id": "activities",
+    "label": "Tours & Activities",
+    "suggestedDaily": 35
+  }
+]
