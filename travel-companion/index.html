@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="International Travel &amp; Currency Companion - Explore countries, check live exchange rates, and build your travel budget." />
+    <title>TravelCompanion | International Travel &amp; Currency Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <header id="main-header" class="site-header"></header>
+
+    <main class="container">
+      <section class="hero-banner">
+        <div class="hero-banner__content">
+          <h1>International Travel &amp; Currency Companion</h1>
+          <p>Explore 250+ destinations, convert expenses with real-time European Central Bank rates, and build your personal trip budget.</p>
+        </div>
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="country-search">Search Country or Capital</label>
+            <input type="search" id="country-search" placeholder="e.g. Spain, Tokyo, Brazil, EUR..." />
+          </div>
+          <div class="filter-group">
+            <label for="region-filter">Filter by Region</label>
+            <select id="region-filter">
+              <option value="all">All World Regions</option>
+              <option value="Americas">Americas</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="Africa">Africa</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <div class="dashboard-layout">
+        <section class="countries-panel" aria-labelledby="explorer-heading">
+          <div class="panel-header">
+            <h2 id="explorer-heading">Destination Explorer</h2>
+            <span id="results-count" class="results-count">Loading countries...</span>
+          </div>
+          <ul id="country-list" class="country-grid"></ul>
+        </section>
+
+        <aside class="sidebar-panel">
+          <section class="widget-card" aria-labelledby="converter-heading">
+            <h2 id="converter-heading">Live Currency Converter</h2>
+            <form id="converter-form" class="widget-form">
+              <label for="conv-amount">Amount</label>
+              <input type="number" id="conv-amount" value="100" min="1" step="any" required />
+
+              <div class="currency-row">
+                <div>
+                  <label for="from-currency">From (Home)</label>
+                  <select id="from-currency">
+                    <option value="USD" selected>USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="MXN">MXN - Mexican Peso</option>
+                    <option value="BRL">BRL - Brazilian Real</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="to-currency">To (Destination)</label>
+                  <select id="to-currency">
+                    <option value="EUR" selected>EUR - Euro</option>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="MXN">MXN - Mexican Peso</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="BRL">BRL - Brazilian Real</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">Convert Currency</button>
+            </form>
+            <div id="converter-result" class="converter-result" aria-live="polite"></div>
+          </section>
+
+          <section class="widget-card" aria-labelledby="budget-heading">
+            <h2 id="budget-heading">Quick Trip Budget</h2>
+            <form id="budget-form" class="widget-form">
+              <label for="budget-desc">Expense Description</label>
+              <input type="text" id="budget-desc" placeholder="e.g. 3 Nights Hotel in Madrid" required />
+
+              <div class="currency-row">
+                <div>
+                  <label for="budget-category">Category</label>
+                  <select id="budget-category">
+                    <option value="Lodging">Hotel &amp; Lodging</option>
+                    <option value="Flights">Flights &amp; Airfare</option>
+                    <option value="Food">Food &amp; Dining</option>
+                    <option value="Transport">Local Transport</option>
+                    <option value="Activities">Tours &amp; Activities</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="budget-amount">Cost (Home Currency)</label>
+                  <input type="number" id="budget-amount" placeholder="150" min="1" step="any" required />
+                </div>
+              </div>
+
+              <label for="budget-country">Destination Country</label>
+              <input type="text" id="budget-country" placeholder="e.g. Spain" required />
+
+              <button type="submit" class="btn btn--teal btn--full">+ Add Expense to Budget</button>
+            </form>
+
+            <ul id="budget-list" class="budget-list"></ul>
+            <div id="budget-total" class="budget-total"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer id="main-footer" class="site-footer"></footer>
+  </body>
+</html>

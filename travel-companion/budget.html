@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Manage your saved travel destinations and itemized trip budget." />
+    <title>TravelCompanion | Saved Destinations &amp; Trip Budget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <header id="main-header" class="site-header"></header>
+
+    <main class="container">
+      <section class="hero-banner">
+        <h1>Saved Destinations &amp; Trip Budget Planner</h1>
+        <p>Review your bookmarked countries and plan your itemized travel expenses in both home and local currencies.</p>
+      </section>
+
+      <div class="dashboard-layout">
+        <section class="widget-card" aria-labelledby="saved-heading">
+          <h2 id="saved-heading">★ My Saved Destinations</h2>
+          <ul id="saved-favorites-list" class="saved-favs-list"></ul>
+        </section>
+
+        <section class="widget-card" aria-labelledby="budget-page-heading">
+          <h2 id="budget-page-heading">Itemized Trip Budget Builder</h2>
+          <form id="budget-form" class="widget-form">
+            <label for="budget-desc">Expense Item</label>
+            <input type="text" id="budget-desc" placeholder="e.g. Round-trip Flight" required />
+
+            <div class="currency-row">
+              <div>
+                <label for="budget-category">Category</label>
+                <select id="budget-category">
+                  <option value="Flights">Flights &amp; Airfare</option>
+                  <option value="Lodging">Hotel &amp; Lodging</option>
+                  <option value="Food">Food &amp; Dining</option>
+                  <option value="Transport">Local Transport</option>
+                  <option value="Activities">Tours &amp; Activities</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget-amount">Amount (USD)</label>
+                <input type="number" id="budget-amount" placeholder="450" min="1" step="any" required />
+              </div>
+            </div>
+
+            <label for="budget-country">Destination Country</label>
+            <input type="text" id="budget-country" placeholder="e.g. Japan" required />
+
+            <button type="submit" class="btn btn--teal btn--full">+ Save Expense Item</button>
+          </form>
+
+          <ul id="budget-list" class="budget-list"></ul>
+          <div id="budget-total" class="budget-total"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer id="main-footer" class="site-footer"></footer>
+  </body>
+</html>

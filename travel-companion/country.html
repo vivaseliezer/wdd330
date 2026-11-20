@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Detailed destination facts, neighboring countries, and live currency conversion." />
+    <title>TravelCompanion | Country Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <header id="main-header" class="site-header"></header>
+
+    <main class="container">
+      <div class="dashboard-layout">
+        <section id="country-detail-container" class="countries-panel">
+          <p class="loading-text">Loading destination details...</p>
+        </section>
+
+        <aside class="sidebar-panel">
+          <section class="widget-card" aria-labelledby="converter-heading">
+            <h2 id="converter-heading">Destination Currency Calculator</h2>
+            <form id="converter-form" class="widget-form">
+              <label for="conv-amount">Amount</label>
+              <input type="number" id="conv-amount" value="100" min="1" step="any" required />
+              <div class="currency-row">
+                <div>
+                  <label for="from-currency">From</label>
+                  <select id="from-currency">
+                    <option value="USD" selected>USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="CAD">CAD</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="to-currency">To</label>
+                  <select id="to-currency">
+                    <option value="EUR" selected>EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="JPY">JPY</option>
+                    <option value="CAD">CAD</option>
+                    <option value="MXN">MXN</option>
+                    <option value="CHF">CHF</option>
+                    <option value="AUD">AUD</option>
+                    <option value="BRL">BRL</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">Recalculate Rate</button>
+            </form>
+            <div id="converter-result" class="converter-result" aria-live="polite"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer id="main-footer" class="site-footer"></footer>
+  </body>
+</html>
