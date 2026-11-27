@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>W05 Learning Activity: Dataset</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      #items {
+        list-style: none;
+        padding: 0;
+      }
+
+      #items li {
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      li[data-category="fruit"] {
+        background-color: lightyellow;
+      }
+
+      li[data-category="vegetable"] {
+        background-color: lightgreen;
+      }
+
+      li[data-category="dairy"] {
+        background-color: lightblue;
+      }
+
+      .item-details {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>W05 Learning Activity: Dataset</h1>
+    <p>Click on any item below to view its <code>dataset</code> attributes:</p>
+
+    <ul id="items">
+      <li data-name="banana" data-category="fruit" data-color="yellow">Banana</li>
+      <li data-name="carrot" data-category="vegetable" data-color="orange">Carrot</li>
+      <li data-name="blueberry" data-category="fruit" data-color="blue">Blueberry</li>
+    </ul>
+
+    <script>
+      const items = document.querySelectorAll("#items li");
+      const details = document.createElement("div");
+      details.className = "item-details";
+      document.body.appendChild(details);
+
+      items.forEach((item) => {
+        console.log("Name:", item.dataset.name);
+        console.log("Category:", item.dataset.category);
+        console.log("Color:", item.dataset.color);
+
+        item.addEventListener("click", () => {
+          details.innerHTML = `
+            <h2>Item Details</h2>
+            <p><strong>Name:</strong> ${item.dataset.name}</p>
+            <p><strong>Category:</strong> ${item.dataset.category}</p>
+            <p><strong>Color:</strong> ${item.dataset.color}</p>
+          `;
+        });
+      });
+    </script>
+  </body>
+</html>
